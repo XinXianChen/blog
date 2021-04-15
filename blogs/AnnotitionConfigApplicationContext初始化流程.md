@@ -70,8 +70,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 ```
-#### 2.1 AnnotatedBeanDefinitionReader的主要职责
-
+#### 2.1 AnnotatedBeanDefinitionReader
 
 ```
 /**
@@ -98,7 +97,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	}
 ```
 
-
+##### 主要职责
 - 添加AnnotationAwareOrderComparator类的对象，主要去排序，能解析@Order注解和@Priority
 - 添加ContextAnnotationAutowireCandidateResolver，提供处理延迟加载的功能
 - BeanDefinitionMap注册多个后续需要使用到的BeanPostProcessor以及BeanFactoryPostProcessor等
