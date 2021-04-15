@@ -2,7 +2,7 @@
 
 ### Spring
 
-   [AnnotitionConfigApplicationContext初始化流程](blogs/AnnotitionConfigApplicationContext初始化流程.md)
+  - [AnnotitionConfigApplicationContext初始化流程](blogs/AnnotitionConfigApplicationContext初始化流程.md)
 
 
 ### JVM
