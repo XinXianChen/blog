@@ -42,11 +42,17 @@ public class TestDynamicLoad {
 当我们运行main函数，首先需要先把主类加载进jvm，大体先后流程如下：
 
 1 创建jvm （c++实现）
+
 2 创建一个引导类加载器
+
 3 然后通过c++代码发起对java代码的调用，主要是为了加载并创建jvm启动器实例（sun.misc.Launcher）
+
 4 Launcher负责加载并创建扩展类加载器以及应用程序类加载器
+
 5 获取运行类自己的类加载器，Launcher内部的实现是会返回应用程序类加载器，详见Launcher源码
+
 6 应用程序类加载器完成对主类的加载(**classload.loadClass()**)，也就是我们的TestDynamicLoad
+
 7 执行main函数
 
 #### Launcher部分源码如下所示
@@ -138,7 +144,7 @@ java里面主要有以下几类类加载器
  - 自定义加载器:负责加载用户自定义路径下的类包
  
  
- #### 双亲委派机制的源码实现 ：ClassLoad.loadClass
+#### 双亲委派机制的源码实现 ：ClassLoad.loadClass
  
 ```
 protected Class<?> loadClass(String name, boolean resolve)
