@@ -111,7 +111,7 @@ public class TestDynamicLoad {
      }
  ```
  
- ### loadClass的大体流程
+### loadClass的大体流程
  
 加载 >> 验证 >> 准备 >> 解析 >> 初始化 >> 使用 >> 卸载
 
