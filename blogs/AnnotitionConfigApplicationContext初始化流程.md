@@ -217,34 +217,34 @@ public void refresh() throws BeansException, IllegalStateException {
 
 ```
 1、getBeanFactoryPostProcessors()得到自己定义的（就是程序员自己写的，并且没有交给spring管理，就是没有加上@Component）
-											2、得到spring内部自己维护的BeanDefinitionRegistryPostProcessor
-											org.springframework.context.support.AbstractApplicationContext#invokeBeanFactoryPostProcessors
-												//调用这个方法
-												//循环所有的BeanDefinitionRegistryPostProcessor
-												//该方法内部postProcessor.postProcessBeanDefinitionRegistry
-												org.springframework.context.support.PostProcessorRegistrationDelegate#invokeBeanDefinitionRegistryPostProcessors
-													//调用扩展方法postProcessBeanDefinitionRegistry
-													org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry
-														//拿出的所有bd，然后判断bd时候包含了@Configuration、@Import，@Compent。。。注解
-														org.springframework.context.annotation.ConfigurationClassPostProcessor#processConfigBeanDefinitions
-															1、的到bd当中描述的类的元数据（类的信息）
-															2、判断是不是加了@Configuration   metadata.isAnnotated(Configuration.class.getName())
-															3、如果加了@Configuration，添加到一个set当中,把这个set传给下面的方法去解析
-															org.springframework.context.annotation.ConfigurationClassUtils#checkConfigurationClassCandidate
-															//扫描包
-															
-															org.springframework.context.annotation.ConfigurationClassParser#parse(java.util.Set<org.springframework.beans.factory.config.BeanDefinitionHolder>)
-																
-																org.springframework.context.annotation.ConfigurationClassParser#parse(org.springframework.core.type.AnnotationMetadata, java.lang.String)
-																	//就行了一个类型封装
-																	org.springframework.context.annotation.ConfigurationClassParser#processConfigurationClass
-																	1、处理内部类 一般不会写内部类
-																	org.springframework.context.annotation.ConfigurationClassParser#doProcessConfigurationClass
-																		//解析扫描的一些基本信息，比如是否过滤，比如是否加入新的包。。。。。
-																		org.springframework.context.annotation.ComponentScanAnnotationParser#parse
-																			org.springframework.context.annotation.ClassPathBeanDefinitionScanner#doScan
-																			org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider#findCandidateComponents
-																				org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider#scanCandidateComponents
+2、得到spring内部自己维护的BeanDefinitionRegistryPostProcessor
+org.springframework.context.support.AbstractApplicationContext#invokeBeanFactoryPostProcessors
+    //调用这个方法
+    //循环所有的BeanDefinitionRegistryPostProcessor
+    //该方法内部postProcessor.postProcessBeanDefinitionRegistry
+    org.springframework.context.support.PostProcessorRegistrationDelegate#invokeBeanDefinitionRegistryPostProcessors
+        //调用扩展方法postProcessBeanDefinitionRegistry
+        org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry
+            //拿出的所有bd，然后判断bd时候包含了@Configuration、@Import，@Compent。。。注解
+            org.springframework.context.annotation.ConfigurationClassPostProcessor#processConfigBeanDefinitions
+                1、的到bd当中描述的类的元数据（类的信息）
+                2、判断是不是加了@Configuration   metadata.isAnnotated(Configuration.class.getName())
+                3、如果加了@Configuration，添加到一个set当中,把这个set传给下面的方法去解析
+                org.springframework.context.annotation.ConfigurationClassUtils#checkConfigurationClassCandidate
+                //扫描包
+                
+                org.springframework.context.annotation.ConfigurationClassParser#parse(java.util.Set<org.springframework.beans.factory.config.BeanDefinitionHolder>)
+                    
+                    org.springframework.context.annotation.ConfigurationClassParser#parse(org.springframework.core.type.AnnotationMetadata, java.lang.String)
+                        //就行了一个类型封装
+                        org.springframework.context.annotation.ConfigurationClassParser#processConfigurationClass
+                        1、处理内部类 一般不会写内部类
+                        org.springframework.context.annotation.ConfigurationClassParser#doProcessConfigurationClass
+                            //解析扫描的一些基本信息，比如是否过滤，比如是否加入新的包。。。。。
+                            org.springframework.context.annotation.ComponentScanAnnotationParser#parse
+                                org.springframework.context.annotation.ClassPathBeanDefinitionScanner#doScan
+                                org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider#findCandidateComponents
+                                    org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider#scanCandidateComponents
 ```
 
 
