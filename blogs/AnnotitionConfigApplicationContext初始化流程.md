@@ -103,22 +103,22 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 - BeanDefinitionMap注册多个后续需要使用到的BeanPostProcessor以及BeanFactoryPostProcessor等
 
 ```
-            //扫描并注册beanDefinition、解析注解、imprt注解的解析等。需要注意的是ConfigurationClassPostProcessor的类型是BeanDefinitionRegistryPostProcessor而 BeanDefinitionRegistryPostProcessor 最终实现BeanFactoryPostProcessor这个接口
-			ConfigurationClassPostProcessor
-			
-			//自动装配等
-			AutowiredAnnotationBeanPostProcessor
-			
-			RequiredAnnotationBeanPostProcessor
-			
-			//主要处理@Resource、@PostConstruct和@PreDestroy注解的实现,Resource的处理是由他自己完成,其他两个是由他的父类完成,父类InitDestroyAnnotationBeanPostProcessor的postProcessMergedBeanDefinition,会找出被@PostConstruct和@PreDestroy注解修饰的方法
-			CommonAnnotationBeanPostProcessor
-            
-            //事件监听
-            EventListenerMethodProcessor...
-            DefaultEventListenerFactory
-            
-            ...
+//扫描并注册beanDefinition、解析注解、imprt注解的解析等。需要注意的是ConfigurationClassPostProcessor的类型是BeanDefinitionRegistryPostProcessor而 BeanDefinitionRegistryPostProcessor 最终实现BeanFactoryPostProcessor这个接口
+ConfigurationClassPostProcessor
+
+//自动装配等
+AutowiredAnnotationBeanPostProcessor
+
+RequiredAnnotationBeanPostProcessor
+
+//主要处理@Resource、@PostConstruct和@PreDestroy注解的实现,Resource的处理是由他自己完成,其他两个是由他的父类完成,父类InitDestroyAnnotationBeanPostProcessor的postProcessMergedBeanDefinition,会找出被@PostConstruct和@PreDestroy注解修饰的方法
+CommonAnnotationBeanPostProcessor
+
+//事件监听
+EventListenerMethodProcessor...
+DefaultEventListenerFactory
+
+...
 ```
 
 ### 3 register(annotatedClasses)
