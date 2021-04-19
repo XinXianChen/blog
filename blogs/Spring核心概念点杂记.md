@@ -63,10 +63,12 @@ AOP也正是通过BeanPostProcessor和IOC容器建立起了联系
 但是他的实现类特别复杂，同样复杂到发指！
 可以看看spring提供哪些默认的实现（前方高能）
 查看类的关系图可以知道spring提供了以下的默认实现，因为高能，故而我们只是解释几个常用的
+
 1、ApplicationContextAwareProcessor （acap）
     acap后置处理器的作用是，当应用程序定义的Bean实现ApplicationContextAware接口时注入ApplicationContext对象
     当然这是他的第一个作业，他还有其他作用，这里不一一列举了，可以参考源码
     我们可以针对ApplicationContextAwareProcessor写一个栗子
+    
 2、InitDestroyAnnotationBeanPostProcessor
     用来处理自定义的初始化方法和销毁方法
     上次说过Spring中提供了3种自定义初始化和销毁方法分别是
@@ -75,11 +77,17 @@ AOP也正是通过BeanPostProcessor和IOC容器建立起了联系
     三、@PostConstruct：@PreDestroy
     为什么spring通这三种方法都能完成对bean生命周期的回调呢？
     可以通过InitDestroyAnnotationBeanPostProcessor的源码来解释
+    
 3、InstantiationAwareBeanPostProcessor
+
 4、CommonAnnotationBeanPostProcessor
+
 5、AutowiredAnnotationBeanPostProcessor
+
 6、RequiredAnnotationBeanPostProcessor
+
 7、BeanValidationPostProcessor
+
 8、AbstractAutoProxyCreator
    ......
 
