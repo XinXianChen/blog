@@ -6,6 +6,8 @@
 ### Spring
 
   - [AnnotitionConfigApplicationContext初始化流程](blogs/AnnotitionConfigApplicationContext初始化流程.md)
+  
+  - [Spring核心概念点杂记](blogs/Spring核心概念点杂记.md)
 
 
 ### JVM

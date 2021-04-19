@@ -1,5 +1,7 @@
 # AnnotitionConfigApplicationContext
 
+![beanFactoryInit](../images/beanFactoryInit.png)
+
 ## 一·类层次结构概览
 
 ```
