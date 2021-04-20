@@ -341,7 +341,7 @@ public class MyClassLoader extends URLClassLoader {
 ```
 
 #### Tomcat自定义类加载器概览
-![tomcatclassload](../images/tomcatclassload.png)
+![tomcatclassload](../../images/tomcatclassload.png)
 
 WebappClassLoader:各个Webapp私有的类加载器，加载路径中的class只对当前Webapp可见，比如加载war包里相关的类，每个war包应用都有自己的WebappClassLoader，
 实现相互隔离，比如不同war包应用引入了不同的spring版本， 这样实现就能加载各自的spring版本,每个webappClassLoader加载自己的目录下的class文件，不会传递给父类加载器，打破了双亲委 派机制。

@@ -1,4 +1,4 @@
-![beanFactoryInit](../images/beanFactoryInit.png)
+![beanFactoryInit](../../images/beanFactoryInit.png)
 
 ### BeanFactory 或 ApplicationContext？
 
@@ -10,7 +10,7 @@
 
 下表列出了BeanFactory和ApplicationContext接口和实现提供的功能。
 
-![beanFactory](../images/beanFactory.png)
+![beanFactory](../../images/beanFactory.png)
 
 ### BeanFactory和FactoryBean的区别
 BeanFactory提供了ioc的基本功能，负责bean的实例化等功能
@@ -146,11 +146,11 @@ public interface ImportSelector {
 
 将selectImports返回的类全名加载到spring容器内，在spring内主要作用是可以动态的开启和关闭某个功能（即是否需要加载某些bean），
 spring aop就有基于这一点，如是否开启事物管理的注解内部就用到了ImportSeletcor，配合@import来使用
-![trans](../images/trans.png)
+![trans](../../images/trans.png)
 
 ### 扩展点总结
 
-![extension](../images/extension.png)
+![extension](../../images/extension.png)
 
 
 
