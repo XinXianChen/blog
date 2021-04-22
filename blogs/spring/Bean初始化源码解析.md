@@ -390,6 +390,9 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 #### 第二个getSingleton
 
+我认为其中有几部是比较重要的，第一是将beanName添加到singletonsCurrentlyInCreation这样一个set集合中，表示beanName对应的bean正在创建中
+第二是调用singletonFactory.getObject()，最终会调用到createBean方法，最终创建bean的逻辑就在其中
+
 ```
 getSingleton(beanName, () -> {
             try {
@@ -403,7 +406,123 @@ getSingleton(beanName, () -> {
                 throw ex;
             }
         });
+        
+        
+public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
+		Assert.notNull(beanName, "Bean name must not be null");
+		synchronized (this.singletonObjects) {
+			Object singletonObject = this.singletonObjects.get(beanName);
+			if (singletonObject == null) {
+				if (this.singletonsCurrentlyInDestruction) {
+					throw new BeanCreationNotAllowedException(beanName,
+							"Singleton bean creation not allowed while singletons of this factory are in destruction " +
+							"(Do not request a bean from a BeanFactory in a destroy method implementation!)");
+				}
+				if (logger.isDebugEnabled()) {
+					logger.debug("Creating shared instance of singleton bean '" + beanName + "'");
+				}
+				/**
+				 * 将beanName添加到singletonsCurrentlyInCreation这样一个set集合中
+				 * 表示beanName对应的bean正在创建中
+				 */
+				beforeSingletonCreation(beanName);
+				boolean newSingleton = false;
+				boolean recordSuppressedExceptions = (this.suppressedExceptions == null);
+				if (recordSuppressedExceptions) {
+					this.suppressedExceptions = new LinkedHashSet<>();
+				}
+				try {
+					singletonObject = singletonFactory.getObject();
+					newSingleton = true;
+				}
+				catch (IllegalStateException ex) {
+					// Has the singleton object implicitly appeared in the meantime ->
+					// if yes, proceed with it since the exception indicates that state.
+					singletonObject = this.singletonObjects.get(beanName);
+					if (singletonObject == null) {
+						throw ex;
+					}
+				}
+				catch (BeanCreationException ex) {
+					if (recordSuppressedExceptions) {
+						for (Exception suppressedException : this.suppressedExceptions) {
+							ex.addRelatedCause(suppressedException);
+						}
+					}
+					throw ex;
+				}
+				finally {
+					if (recordSuppressedExceptions) {
+						this.suppressedExceptions = null;
+					}
+					//把标识为正在创建的标识去掉
+					afterSingletonCreation(beanName);
+				}
+				if (newSingleton) {
+					addSingleton(beanName, singletonObject);
+				}
+			}
+			return singletonObject;
+		}
+	}
 ```
+
+### createBean
+完成针对bean生命周期的多个处理
+
+- aop
+
+- 属性填充， 自动装配
+
+- 各种后置处理器的调用（beanPostProcessor），在九个地方，调用了五种后置处理器
+
+- 循环依赖的处理
+
+- ...
+
+
+### Bean生命周期所经历的各个后置处理器
+
+#### 第一次：InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation
+InstantiationAwareBeanPostProcessor接口继承BeanPostProcessor接口，它内部提供了3个方法，再加上BeanPostProcessor接口内部的2个方法，所以实现这个接口需要实现5个方法。InstantiationAwareBeanPostProcessor接口的主要作用在于目标对象的实例化过程中需要处理的事情，包括实例化对象的前后过程以及实例的属性设置
+在org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#createBean()方法的Object bean = resolveBeforeInstantiation(beanName, mbdToUse);方法里面执行了这个后置处理器
+
+##### postProcessBeforeInstantiation
+在目标对象实例化之前调用，方法的返回值类型是Object，我们可以返回任何类型的值。由于这个时候目标对象还未实例化，所以这个返回值可以用来代替原本该生成的目标对象的实例(一般都是代理对象)。如果该方法的返回值代替原本该生成的目标对象，后续只有postProcessAfterInitialization方法会调用，其它方法不再调用；否则按照正常的流程走
+
+##### postProcessAfterInstantiation
+方法在目标对象实例化之后调用，这个时候对象已经被实例化，但是该实例的属性还未被设置，都是null。如果该方法返回false，会忽略属性值的设置；如果返回true，会按照正常流程设置属性值。方法不管postProcessBeforeInstantiation方法的返回值是什么都会执行
+
+##### postProcessPropertyValues
+方法对属性值进行修改(这个时候属性值还未被设置，但是我们可以修改原本该设置进去的属性值)。如果postProcessAfterInstantiation方法返回false，该方法不会被调用。可以在该方法内对属性值进行修改
+
+
+#### 第二次：determineConstructorsFromBeanPostProcessors -》SmartInstantiationAwareBeanPostProcessor
+通过**SmartInstantiationAwareBeanPostProcessor.determineCandidateConstructors**来推断构造方法
+
+#### 第三次：applyMergedBeanDefinitionPostProcessors -》MergedBeanDefinitionPostProcessor
+缓存注解信息
+
+#### 第四次：addSingletonFactory -》 getEarlyBeanReference -》SmartInstantiationAwareBeanPostProcessor
+通过**SmartInstantiationAwareBeanPostProcessor.getEarlyBeanReference**得到一个提前暴露的对象，对象不是bean（在spring容器中，并且是spring产生，即ObjectFactory，最终会调用ObjectFactory.getObject来得到具体bean）
+
+#### 第五次：populateBean -》InstantiationAwareBeanPostProcessor
+调用**InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation**来判断是否要进行数学填充
+
+#### 第六次：populateBean -》InstantiationAwareBeanPostProcessor
+调用**InstantiationAwareBeanPostProcessor.postProcessPropertyValues**来填充属性
+
+#### 第七次：initializeBean -》applyBeanPostProcessorsBeforeInitialization
+执行各种beanPostProcessor的**postProcessBeforeInitialization**方法
+
+#### 第八次：initializeBean -》applyBeanPostProcessorsAfterInitialization
+执行各种beanPostProcessor的**postProcessAfterInitialization**方法
+
+#### 第九次：执行bean销毁的后置处理
+
+
+
+
 
 
 
