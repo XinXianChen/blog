@@ -1,5 +1,6 @@
 ### 写在开始
 我们知道在Spring中，bean在实例化之前，会先生成beanDefinition并存放在DefaultListableBeanFactory.beanDefinitionMap内部，流程如下。
+
 `refresh -》 invokeBeanFactoryPostProcessors -》 ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry -》... -》ClassPathBeanDefinitionScanner.doScan -》 DefaultListableBeanFactory.beanDefinitionMap`
 
 #### Spring中Bean的初始化概览图
