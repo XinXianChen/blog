@@ -9,7 +9,7 @@
   
   - [Spring核心概念点杂记](blogs/spring/Spring核心概念点杂记.md)
   
-  - [Spring核心概念点杂记](blogs/spring/Bean初始化源码解析.md)
+  - [Bean初始化源码解析](blogs/spring/Bean初始化源码解析.md)
 
 
 ### JVM
