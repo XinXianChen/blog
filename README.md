@@ -21,6 +21,8 @@
    - [Jvm内存模型概览](blogs/jvm/JVM内存模型概览.md)
    
    - [JVM发生OOM的原因汇总](blogs/jvm/JVM发生OOM的原因汇总.md)
+   
+   - [JVM对象创建与内存分配机制](blogs/jvm/JVM对象创建于内存分配机制.md)
 
 
 ### 并发编程
