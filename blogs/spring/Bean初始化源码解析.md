@@ -522,6 +522,11 @@ InstantiationAwareBeanPostProcessor接口继承BeanPostProcessor接口，它内�
 #### 第九次：执行bean销毁的后置处理
 
 
+### spring bean的生命周期大致流程总结
+![life_cycle](../../images/bean_life_cycle.png)
+
+
+
 
 
 
