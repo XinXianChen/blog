@@ -6,7 +6,7 @@
 
 
 ### B+tree
-![B+Tree](../../images/B-tree.png)
+![B+Tree](../../images/B+Tree.png)
 
 ### Hash
 ![Hash](../../images/Hash.png)
