@@ -34,6 +34,8 @@
 ### MYSQL
 
    - [Mysql索引概览](blogs/mysql/mysql索引概览.md)
+   
+   - [sql执行流程](blogs/mysql/Sql执行流程.md)
 
 
 
