@@ -10,6 +10,8 @@
   - [Spring核心概念点杂记](blogs/spring/Spring核心概念点杂记.md)
   
   - [Bean初始化源码解析](blogs/spring/Bean初始化源码解析.md)
+  
+  - [Spring5新特性之日志](blogs/spring/Spring5新特性之日志.md)
 
 
 ### JVM
