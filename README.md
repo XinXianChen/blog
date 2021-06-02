@@ -12,6 +12,8 @@
   - [Bean初始化源码解析](blogs/spring/Bean初始化源码解析.md)
   
   - [Spring5新特性之日志](blogs/spring/Spring5新特性之日志.md)
+  
+  - [Spring集成mybatis源码实现](blogs/spring/Spring集成mybatis源码实现.md)
 
 
 ### JVM
