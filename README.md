@@ -14,6 +14,8 @@
   - [Spring5新特性之日志](blogs/spring/Spring5新特性之日志.md)
   
   - [Spring集成mybatis源码实现](blogs/spring/Spring集成mybatis源码实现.md)
+  
+  - [mybatis-spring中一级缓存失效](blogs/spring/mybatis-spring中一级缓存失效.md)
 
 
 ### JVM
