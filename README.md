@@ -16,6 +16,8 @@
   - [Spring集成mybatis源码实现](blogs/spring/Spring集成mybatis源码实现.md)
   
   - [mybatis-spring中一级缓存失效](blogs/spring/mybatis-spring中一级缓存失效.md)
+  
+  - [Spring循环依赖](blogs/spring/Spring循环依赖.md)
 
 
 ### JVM
