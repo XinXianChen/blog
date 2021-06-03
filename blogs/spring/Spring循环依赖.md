@@ -180,7 +180,7 @@ populateBean(beanName, mbd, instanceWrapper);
 ![getSingleton_6](../../images/getSingleton_6.png)
 
 ### bean的创建流程以及循环依赖解决总结流程图
-![spring_bean_init](../../images/spring_bean_init.png)
+![spring_bean_init](../../images/spring_bean_init.jpg)
 
 
 
