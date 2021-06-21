@@ -40,6 +40,8 @@
 ### 并发编程
 
    - [操作系统概要](blogs/concurrent/操作系统概要.md)
+   
+   - [Java内存模型](blogs/concurrent/Java内存模型.md)
 
 ### MYSQL
 
