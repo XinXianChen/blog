@@ -42,6 +42,8 @@
    - [操作系统概要](blogs/concurrent/操作系统概要.md)
    
    - [Java内存模型](blogs/concurrent/Java内存模型.md)
+   
+   - [Synchronized原理剖析](blogs/concurrent/Synchronized详解.md)
 
 ### MYSQL
 
