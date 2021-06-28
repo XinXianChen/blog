@@ -44,6 +44,8 @@
    - [Java内存模型](blogs/concurrent/Java内存模型.md)
    
    - [Synchronized原理剖析](blogs/concurrent/Synchronized详解.md)
+   
+   - [AQS粗见](blogs/concurrent/AQS粗见.md)
 
 ### MYSQL
 
