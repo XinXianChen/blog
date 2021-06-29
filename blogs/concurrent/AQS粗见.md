@@ -249,6 +249,8 @@ LockSupport.park可以支持通过thread.interrupt来唤醒，第二点是因为
 ![conditionQueue](../../images/conditionQueue.png)
 
 ### aqs的共享模式
-通过state的值来控制，共享模式的state的值大于1，比如semaphare内的构造函数就是传一个正整数来标识同一时间可以占用锁的线程数，即共享线程数
+通过state的值来控制，共享模式的state的值大于1，比如semaphare内的构造函数就是传一个正整数来标识同一时间可以占用锁的线程数，即共享线程数。
 
+## ReentrantLock中关于AbstractQueuedSynchronized的流程
 
+![AbstractQueuedSynchronized](../../images/ReentrantLock中的AbstractQueuedSynchronized的流程.png)
