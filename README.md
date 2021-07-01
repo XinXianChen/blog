@@ -46,6 +46,8 @@
    - [Synchronized原理剖析](blogs/concurrent/Synchronized详解.md)
    
    - [AQS粗见](blogs/concurrent/AQS粗见.md)
+   
+   - [阻塞队列](blogs/concurrent/阻塞队列.md)
 
 ### MYSQL
 
