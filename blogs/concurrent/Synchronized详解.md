@@ -61,7 +61,7 @@ synchronized关键字被编译成字节码后会被翻译成monitorenter 和 mon
 每一个Java对象都有成为Monitor的潜质，因为在Java的设计中 ，每一个Java对象自打娘胎里出来就带了一把看不见的锁，
 它叫做内部锁或者Monitor锁。也就是通常说Synchronized的对象锁，MarkWord锁标识位为10，其中指针指向的是Monitor对象的起始地址。
 在Java虚拟机(HotSpot)中，Monitor是由ObjectMonitor实现的，其主要数据结构如下(位于 HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现的):
-![Objectmonitor](../../images/Objectmonitor.png)
+![Objectmonitor](../../images/ObjectMonitor.png)
 
 ObjectMonitor中有两个队列，_WaitSet 和 _EntryList，用来保存ObjectWaiter对象列表( 每个等待锁的线程都会被封装成 ObjectWaiter对象 )，_owner指向持有ObjectMonitor对象的线程，当多个线程同时访问一段同步代码时:
 
