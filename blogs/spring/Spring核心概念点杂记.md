@@ -59,8 +59,6 @@ BeanPostProcessor是Spring框架的提供的一个扩展类点（不止一个）
 AOP也正是通过BeanPostProcessor和IOC容器建立起了联系
 （由spring提供的默认的PostPorcessor,spring提供了很多默认的PostProcessor,下面我会一一介绍这些实现类的功能）
 可以来演示一下 BeanPostProcessor 的使用方式（把动态代理和IOC、aop结合起来使用）
-在演示之前先来熟悉一下这个接口，其实这个接口本身特别简单，简单到你发指
-但是他的实现类特别复杂，同样复杂到发指！
 可以看看spring提供哪些默认的实现（前方高能）
 查看类的关系图可以知道spring提供了以下的默认实现，因为高能，故而我们只是解释几个常用的
 
