@@ -62,6 +62,17 @@
    - [Mysql事物隔离级别与锁机制](blogs/mysql/Mysql事物隔离级别与锁机制.md)
    
    - [MVCC机制](blogs/mysql/MVCC机制.md)
+   
+### Redis
+  - [基本数据结构及应用](blogs/redis/redis基本数据结构及应用.md) 
+  
+  - [redis持久化、主从与哨兵](blogs/redis/redis持久化、主从与哨兵.md) 
+  
+  - [redis集群](blogs/redis/redis集群.md) 
+  
+  - [redis核心数据结构原理](blogs/redis/redis核心数据结构原理.md) 
+  
+  - [redis6新特性](blogs/redis/redis6.0新特性.md) 
 
 
 
