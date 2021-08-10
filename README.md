@@ -73,6 +73,8 @@
   - [redis核心数据结构原理](blogs/redis/redis核心数据结构原理.md) 
   
   - [redis6新特性](blogs/redis/redis6.0新特性.md) 
+  
+  - [缓存设计](blogs/redis/缓存设计与性能优化.md) 
 
 
 
