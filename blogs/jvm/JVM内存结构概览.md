@@ -8,7 +8,7 @@ jre = jvm + libs
 ### java语言的跨平台性
 ![cross-platform](../../images/cross-platform.png)
 
-### JVM整体结构及内存模型
+### JVM整体结构及内存结构
 jvm  = 运行时数据区 + 类装载子系统 + 字节码执行引擎
 ![jvm-memory](../../images/jvmheap.png)
 

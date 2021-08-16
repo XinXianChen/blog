@@ -26,7 +26,7 @@
    
    - [Jvm指令手册](blogs/jvm/JVM指令手册.pdf)
    
-   - [Jvm内存模型概览](blogs/jvm/JVM内存模型概览.md)
+   - [Jvm内存模型概览](blogs/jvm/JVM内存结构概览.md)
    
    - [JVM发生OOM的原因汇总](blogs/jvm/JVM发生OOM的原因汇总.md)
    
@@ -87,4 +87,9 @@
   
   - [ZAB协议简单介绍](blogs/zk/ZAB协议简单介绍.md) 
   
+### MQ
+- [MQ基本概念](blogs/mq/mq基本概念.md) 
 
+- [RabbitMQ简介](blogs/mq/RabbitMQ简介.md) 
+
+- [RabbitMQ高级特性](blogs/mq/RabbitMq高级特性.md) 
