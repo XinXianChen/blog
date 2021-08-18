@@ -5,7 +5,7 @@ AMQP，即 Advanced Message Queuing Protocol（高级消息队列协议），是
 2007年，Rabbit 技术公司基于 AMQP 标准开发的 RabbitMQ 1.0 发布。RabbitMQ 采用 Erlang 语言开发。Erlang 语言由 Ericson 设计，专门为开发高并发和分布式系统的一种语言，在电信领域使用广泛。
 
 **RabbitMQ 基础架构如下图**
-![mq10](../../images/mq10.png)
+![mq10](../../../images/mq10.png)
 
 - Broker：接收和分发消息的应用，RabbitMQ Server就是 Message Broker
 
@@ -24,10 +24,10 @@ AMQP，即 Advanced Message Queuing Protocol（高级消息队列协议），是
 ## 工作模式
 RabbitMQ 提供了 6 种工作模式：简单模式、work queues、Publish/Subscribe 发布与订阅模式、Routing 路由模式、Topics 主题模式、RPC 远程调用模式，官网对应模式介绍：https://www.rabbitmq.com/getstarted.html
 
-![mq11](../../images/mq11.png)
+![mq11](../../../images/mq11.png)
 
 ### 简单模式
-![mq12](../../images/mq12.png)
+![mq12](../../../images/mq12.png)
 在上图的模型中，有以下概念：
 
 - P：生产者，也就是要发送消息的程序
@@ -35,7 +35,7 @@ RabbitMQ 提供了 6 种工作模式：简单模式、work queues、Publish/Subs
 - queue：消息队列，图中红色部分。类似一个邮箱，可以缓存消息；生产者向其中投递消息，消费者从其中取出消息
 
 ### Work queues 工作队列模式
-![mq13](../../images/mq13.png)
+![mq13](../../../images/mq13.png)
 - Work Queues：与入门程序的简单模式相比，多了一个或一些消费端，多个消费端共同消费同一个队列中的消息，默认mq会平均分发，也可在客户端设置消息处理完后再拉去消息。
 
 - 应用场景：对于任务过重或任务较多情况使用工作队列可以提高任务处理的速度。
@@ -44,7 +44,7 @@ RabbitMQ 提供了 6 种工作模式：简单模式、work queues、Publish/Subs
 
 
 ### Pub/Sub 订阅模式
-![mq14](../../images/mq14.png)
+![mq14](../../../images/mq14.png)
 
 在订阅模型中，多了一个 Exchange 角色，而且过程略有变化：
 - P：生产者，也就是要发送消息的程序，但是不再发送到队列中，而是发给X（交换机）
@@ -72,7 +72,7 @@ RabbitMQ 提供了 6 种工作模式：简单模式、work queues、Publish/Subs
     发布/订阅模式需要设置队列和交换机的绑定，工作队列模式不需要设置，实际上工作队列模式会将队列绑 定到默认的交换机
 
 ### Routing 路由模式
-![mq15](../../images/mq15.png)
+![mq15](../../../images/mq15.png)
 
 - 队列与交换机的绑定，不能是任意绑定了，而是要指定一个 RoutingKey（路由key）
 - 消息的发送方在向 Exchange 发送消息时，也必须指定消息的 RoutingKey
@@ -87,7 +87,7 @@ C1：消费者，其所在队列指定了需要 routing key 为 error 的消息
 C2：消费者，其所在队列指定了需要 routing key 为 info、error、warning 的消息
 
 ### Topics 通配符模式
-![mq16](../../images/mq16.png)
+![mq16](../../../images/mq16.png)
 - Topic 类型与 Direct 相比，都是可以根据 RoutingKey 把消息路由到不同的队列。只不过 Topic 类型Exchange 可以让队列在绑定 Routing key 的时候使用通配符！
 - Routingkey 一般都是有一个或多个单词组成，多个单词之间以”.”分割，例如： item.insert 
 - 通配符规则：# 匹配一个或多个词，* 匹配不多不少恰好1个词，例如：item.# 能够匹配 item.insert.abc 或者 item.insert，item.* 只能匹配 item.insert
