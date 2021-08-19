@@ -1,7 +1,5 @@
 
 ## 心弦的杂记
-![cover](images/cover.jpeg)
-
 
 ### Spring
 
