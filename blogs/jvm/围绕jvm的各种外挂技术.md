@@ -1,5 +1,5 @@
 ## 两种Agent
-### 1.Native Agent （Jvmti Agent）
+### Native Agent （Jvmti Agent）
 以 C/C++代码编写的Agent，用强大的JVMTI（JVM Tool Interface）接口与JVM进行通讯，订阅感兴趣的JVM事件（比如方法出入、线程始末等等），当这些事件发生时，会回调Agent的代码。 JVMTI 同时提供了众多的功能函数，查询和控制 Java 应用的运行状态，包括内存控制和对象获取，线程与锁等等，简直无所不能。
 
 使用者，包括各种Profile工具，如Yourkit，JProfiler，Aysnc-Profiler, 还有动态Reload Class而不重启应用的JRebel。
