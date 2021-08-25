@@ -34,7 +34,14 @@
    
    - [G1&ZGC概览](blogs/jvm/G1&ZGC概览.md)
 
-
+   - [围绕jvm的各种外挂技术](blogs/jvm/围绕jvm的各种外挂技术.md)
+   
+   - [Java的Attach机制](blogs/jvm/Attach机制.md)
+   
+   - [JMX](blogs/jvm/JMX.md)
+   
+   - [JavaAgent原理解读](blogs/jvm/JavaAgent原理.md)
+   
 ### 并发编程
 
    - [操作系统概要](blogs/concurrent/操作系统概要.md)
@@ -105,3 +112,6 @@
   - [RocketMQ源码粗见](blogs/mq/rocket/Rocket源码粗见.md) 
   
   - [RocketMQ实践问题](blogs/mq/rocket/Rocket实践问题.md) 
+
+### Netty
+  - [各种IO模型](blogs/netty/IO模型.md) 
