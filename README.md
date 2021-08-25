@@ -24,7 +24,7 @@
    
    - [Jvm指令手册](blogs/jvm/JVM指令手册.pdf)
    
-   - [Jvm内存模型概览](blogs/jvm/JVM内存结构概览.md)
+   - [Jvm内存结构概览](blogs/jvm/JVM内存结构概览.md)
    
    - [JVM发生OOM的原因汇总](blogs/jvm/JVM发生OOM的原因汇总.md)
    
