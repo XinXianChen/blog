@@ -60,7 +60,7 @@
 
 **2、Dledger的文件同步**
 
-![mq33](../../../images/mq33.png)
+![mq34](../../../images/mq34.png)
 
 在使用Dledger技术搭建的RocketMQ集群中，Dledger会通过两阶段提交的方式保证文件在主从之间成
 
