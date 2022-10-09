@@ -15,7 +15,9 @@
    
    - [JVM垃圾收集机制（CMS&&三色标记等）](blogs/jvm/JVM垃圾收集机制.md)
    
-   - [G1&ZGC概览](blogs/jvm/G1&ZGC概览.md)
+   - [G1](blogs/jvm/G1.md)
+
+   - [ZGC](blogs/jvm/ZGC.md)
 
    - [围绕jvm的各种外挂技术](blogs/jvm/围绕jvm的各种外挂技术.md)
    
